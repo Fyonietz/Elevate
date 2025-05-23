@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.30)
+
+project(Elevate)
+file(GLOB_RECURSE SOURCES "src/*.cpp")
+
+add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
+
+target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC src)

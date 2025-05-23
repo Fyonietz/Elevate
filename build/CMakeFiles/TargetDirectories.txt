@@ -1,0 +1,3 @@
+/d/Repo/Elevate/build/CMakeFiles/Elevate.dir
+/d/Repo/Elevate/build/CMakeFiles/edit_cache.dir
+/d/Repo/Elevate/build/CMakeFiles/rebuild_cache.dir

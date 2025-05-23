@@ -1,6 +1,4 @@
-Here's a sample README.md for your project, Elevete:
 
----
 
 # Elevete
 

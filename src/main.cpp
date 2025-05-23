@@ -6,7 +6,7 @@
 
 // Serve the index.html file
 int serve(struct mg_connection *conn) {
-    FILE *file = fopen("web/index.html", "rb"); // Open HTML File
+    FILE *file = fopen("Ui/index.html", "rb"); // Open HTML File
     if (!file) {
         mg_printf(conn, "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\n\r\nFile not found");
         return 404;
@@ -47,7 +47,7 @@ int request_handler(struct mg_connection *conn, void *callback_data) {
 
 int main() {
     const char *config[] = {
-        "document_root", "web",
+        "document_root", "Ui",
         "listening_ports", "9090",
         0
     };

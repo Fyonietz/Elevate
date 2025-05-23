@@ -4,11 +4,11 @@ project(Elevate)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
 file(GLOB_RECURSE SOURCES "src/*.cpp")
-file(GLOB_RECURSE INL "src/*.inl")
+file(GLOB_RECURSE INL "src/Civet/*.inl")
 
 add_executable(${CMAKE_PROJECT_NAME} 
 ${SOURCES}
-src/civetweb.c
+src/Civet/civetweb.c
 ${INL}
 )
 

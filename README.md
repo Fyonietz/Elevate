@@ -1,8 +1,8 @@
 
 
-# Elevete
+# Elevate
 
-**Elevete** is a web-based launcher that combines an interactive UI (built with HTML and CSS) with native Windows application launching capabilities via C++. The project bridges the web and desktop worlds, enabling users to launch Windows applications (like Calculator) directly from a modern web interface.
+**Elevate** is a web-based launcher that combines an interactive UI (built with HTML and CSS) with native Windows application launching capabilities via C++. The project bridges the web and desktop worlds, enabling users to launch Windows applications (like Calculator) directly from a modern web interface.
 
 ## Features
 

@@ -1,8 +1,22 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.10)  # 3.30 isn't out yet; use 3.10 or later
 
 project(Elevate)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
 file(GLOB_RECURSE SOURCES "src/*.cpp")
+file(GLOB_RECURSE INL "src/*.inl")
 
-add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
+add_executable(${CMAKE_PROJECT_NAME} 
+${SOURCES}
+src/civetweb.c
+${INL}
+)
 
-target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC src)
+target_include_directories(${CMAKE_PROJECT_NAME}
+    PRIVATE src
+    PUBLIC third_party
+)
+target_link_libraries(Elevate ws2_32)
+
+add_definitions(-DNO_SSL)
+

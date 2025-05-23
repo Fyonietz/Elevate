@@ -12,6 +12,40 @@ const char *get_mime_type(const char *path){
     return "text/plain";
 }
 
+int get_method(struct mg_connection *connection,const mg_request_info *info){
+    const char *query = info->query_string;
+    mg_printf(connection, "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n");
+    mg_printf(connection, "GET Request Received\nQuery: %s\n", query ? query : "none");
+
+    return 200;
+};
+
+int post_method(struct mg_connection *connection,const mg_request_info *info){
+    char post_data[1024] = {0};
+    int post_data_lenght = mg_read(connection,post_data,sizeof(post_data));
+    post_data[post_data_lenght]='\0';
+    //Post List
+
+    std::cout << post_data << std::endl;
+    mg_printf(connection,
+        "HTTP/1.1 302 Found\r\n"
+        "Location: /\r\n"
+        "Content-Length: 0\r\n"
+        "\r\n");
+    return 302;
+}
+int request_handler(struct mg_connection *connection, void *callback_data) {
+    const struct mg_request_info *info = mg_get_request_info(connection);
+
+    if (strcmp(info->request_method, "GET") == 0) {
+        return get_method(connection, info);
+    } else if (strcmp(info->request_method, "POST") == 0) {
+        return post_method(connection, info);
+    } else {
+        mg_printf(connection, "HTTP/1.1 405 Method Not Allowed\r\nContent-Type: text/plain\r\n\r\nMethod Not Allowed\n");
+        return 405;
+    }
+}
 int static_file_handler(struct mg_connection *connection,void *callback_data){
     const struct mg_request_info *request_info = mg_get_request_info(connection);
     const char *universal_request_info = request_info->local_uri;
@@ -63,6 +97,7 @@ int static_file_handler(struct mg_connection *connection,void *callback_data){
            "\r\n",
            mime_types,cache_control
     );
+  
     mg_write(connection,buffer_static_into_memory,file_size);
     free(buffer_static_into_memory);
     

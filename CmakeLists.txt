@@ -9,12 +9,14 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE INL "src/Civet/*.inl")
 file (GLOB_RECURSE CIVET "src/Civet/civetweb.c")
 file(GLOB_RECURSE SERVER_CONFIG "src/Server/server.cpp" "src/Server/server.h")
+file(GLOB_RECURSE WINDOWS_API_PATH "src/WindowsAPI/windowsAPI.cpp" "src/WindowsAPI/windowsAPI.h")
 #adding
 add_executable(${CMAKE_PROJECT_NAME} 
         ${SOURCES}
         ${CIVET}
         ${INL}
         ${SERVER_CONFIG}
+        ${WINDOWS_API_PATH}
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME}

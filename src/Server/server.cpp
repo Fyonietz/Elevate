@@ -1,5 +1,5 @@
 #include "server.h"
-
+#include "windows.h"
 const char *get_mime_type(const char *path){
     const char *extension_types = strrchr(path,'.');
     if(!extension_types) return "text/plain";
@@ -103,4 +103,13 @@ int static_file_handler(struct mg_connection *connection,void *callback_data){
     
     return 200;
 
+};
+
+int time_handler(struct mg_connection *connection,void *callback_data){
+    std::string time_string = get_local_system_time();
+
+    mg_printf(connection,
+              "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n%s",
+              time_string.c_str());
+    return 200;
 };

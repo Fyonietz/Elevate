@@ -1,5 +1,7 @@
 #include "Server/server.h"
 
+
+
 int main() {
     //Server Setup
     const char *config[] = {
@@ -15,9 +17,12 @@ int main() {
         std::cerr << "Failed to start Civetweb server." << std::endl;
         return 1;
     }
-
+    
+    //Route Register
     mg_set_request_handler(context, "/", static_file_handler, 0);
     mg_set_request_handler(context,"/api",request_handler,0);
+    mg_set_request_handler(context,"/time",time_handler,0);
+
     std::cout << "Server running on http://localhost:9090" << std::endl;
     getchar();  
     

@@ -1,0 +1,2 @@
+cd ..
+.\Elevate.exe

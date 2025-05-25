@@ -1,11 +1,11 @@
 #ifndef SERVER_CONFIG_H
 #define SERVER_CONFIG_H
-#include <iostream>
 #include "civetweb.h"
 #include <cstring>
 #include <cstdio>
 #include <cstdlib>
 #include "../WindowsAPI/windowsAPI.h"
+
 //Manage File By Extension
 const char *get_mime_type(const char *path);
 //POST Function
@@ -18,4 +18,9 @@ int request_handler(struct mg_connection *connection,void *callback_data);
 int static_file_handler(struct mg_connection *connection,void *callback_data);
 //Handling Time From Windows API
 int time_handler(struct mg_connection *connection,void *callback_data);
+//JSON Save Handling
+int save_json_handler(struct mg_connection *connection,void *callback_data);
+//SAVE File Path Handling
+int save_file_path_handler(struct mg_connection *connection,void *callback_data);
+
 #endif // !SERVER_CONFIG

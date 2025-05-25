@@ -1,0 +1,9 @@
+Brutalism UI Guide
+Font Use = -JetBrains Mono(Body/code Vibes)
+                     -Space Grotesk(For Big Info)
+
+Color Use = -Background Base:	#121212 (charcoal)
+                       -Accent/Buttons/Highlights: #D72638	(Soft Blood Red)
+                       -Text/Borders: #C1C1C1 (Ash Grey)
+                       -Container: #2E2E2E (Steel Gray)
+                       -Contrast Color : #F5F5F5 (Bone White)

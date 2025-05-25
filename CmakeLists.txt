@@ -9,7 +9,7 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE INL "src/Civet/*.inl")
 file (GLOB_RECURSE CIVET "src/Civet/civetweb.c")
 file(GLOB_RECURSE SERVER_CONFIG "src/Server/server.cpp" "src/Server/server.h")
-file(GLOB_RECURSE WINDOWS_API_PATH "src/WindowsAPI/windowsAPI.cpp" "src/WindowsAPI/windowsAPI.h")
+file(GLOB_RECURSE WINDOWS_API_PATH "src/WindowsAPI/windowsAPI.cpp" "src/WindowsAPI/windowsAPI.h" "src/WIndowsAPI/tinyfiledialogs.c")
 #adding
 add_executable(${CMAKE_PROJECT_NAME} 
         ${SOURCES}
@@ -23,7 +23,13 @@ target_include_directories(${CMAKE_PROJECT_NAME}
     PRIVATE src
     PUBLIC third_party
 )
-target_link_libraries(Elevate ws2_32)
+target_link_libraries(Elevate 
+
+        ws2_32
+        ole32
+        comdlg32
+
+)
 
 add_definitions(-DNO_SSL)
 

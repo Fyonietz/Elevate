@@ -28,6 +28,7 @@ int post_method(struct mg_connection *connection,const mg_request_info *info){
     //Post List
 
     std::cout << post_data << std::endl;
+
     mg_printf(connection,
         "HTTP/1.1 302 Found\r\n"
         "Location: /\r\n"
@@ -35,6 +36,7 @@ int post_method(struct mg_connection *connection,const mg_request_info *info){
         "\r\n");
     return 302;
 }
+
 int request_handler(struct mg_connection *connection, void *callback_data) {
     const struct mg_request_info *info = mg_get_request_info(connection);
 

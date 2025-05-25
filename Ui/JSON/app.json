@@ -1,8 +1,15 @@
 {
     "app_lists": [
         {
-            "app_location": "D:\\Repo\\Elevate\\Elevate.exe",
-            "app_name": "Elevate"
+            "PES2017": {
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\PES2017.exe"
+            },
+            "citra-qt": {
+                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra-qt.exe"
+            },
+            "citra-room": {
+                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra-room.exe"
+            }
         }
     ]
 }

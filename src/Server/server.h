@@ -22,5 +22,8 @@ int time_handler(struct mg_connection *connection,void *callback_data);
 int save_json_handler(struct mg_connection *connection,void *callback_data);
 //SAVE File Path Handling
 int save_file_path_handler(struct mg_connection *connection,void *callback_data);
-
+//App Running
+int app_launcher_handler(struct mg_connection *connection,void *callback_data);
+//Delete An App
+int delete_app_handler(struct mg_connection *connection,void *);
 #endif // !SERVER_CONFIG

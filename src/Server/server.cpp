@@ -1,5 +1,6 @@
 #include "server.h"
 #include "windows.h"
+
 const char *get_mime_type(const char *path){
     const char *extension_types = strrchr(path,'.');
     if(!extension_types) return "text/plain";
@@ -116,6 +117,66 @@ int save_json_handler(struct mg_connection *connection,void *callback_data){
 
 int save_file_path_handler(struct mg_connection *connection,void *callback_data){
     get_app_path();
-    
+   mg_printf(connection,
+       "HTTP/1.1 200 OK\r\n"
+        "Content-Type: text/plain\r\n"
+        "Content-Length: 2\r\n"
+        "\r\n"
+        "OK");
+    return 200;
+}
+
+int app_launcher_handler(struct mg_connection *connection,void *callback_data){
+    char app_parameter[1020]={0};
+    int app_parameter_lenght = mg_read(connection,app_parameter,sizeof(app_parameter));
+    app_parameter[app_parameter_lenght];
+
+    std::cout << "Running: "<< app_parameter << std::endl;
+
+   mg_printf(connection,
+       "HTTP/1.1 303 OK\r\n"
+        "Location : /\r\n"
+        "Content-Length: 2\r\n"
+        "\r\n"
+        "OK");
+    return true;
+}
+
+int delete_app_handler(struct mg_connection *connection, void *) {
+    char post_data[256] = {0};
+    mg_read(connection, post_data, sizeof(post_data));
+    std::string name;
+    // Parse "name=AppName" from post_data
+    auto pos = std::string(post_data).find('=');
+    if (pos != std::string::npos)
+        name = std::string(post_data).substr(pos + 1);
+
+    // Load JSON
+    nlohmann::json app_lists_json;
+    std::ifstream in("Ui/JSON/app.json");
+    if (in.is_open()) {
+        in >> app_lists_json;
+        in.close();
+    }
+    if (app_lists_json.contains("app_lists") && app_lists_json["app_lists"].is_array()) {
+        auto& arr = app_lists_json["app_lists"];
+        for (auto it = arr.begin(); it != arr.end(); ++it) {
+            if (it->contains(name)) {
+                arr.erase(it);
+                break;
+            }
+        }
+    }
+    // Save JSON
+    std::ofstream out("Ui/JSON/app.json");
+    out << app_lists_json.dump(4);
+    out.close();
+
+    mg_printf(connection,
+        "HTTP/1.1 200 OK\r\n"
+        "Content-Type: text/plain\r\n"
+        "Content-Length: 2\r\n"
+        "\r\n"
+        "OK");
     return 200;
 }

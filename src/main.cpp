@@ -16,16 +16,17 @@ int main() {
         return 1;
     }
 
-    //Route Register
+    //Routes Register
     mg_set_request_handler(context, "/", static_file_handler, 0);
     mg_set_request_handler(context,"/api",request_handler,0);
     mg_set_request_handler(context,"/time",time_handler,0);
     mg_set_request_handler(context,"/api/save",save_json_handler,0);
     mg_set_request_handler(context,"/os/path",save_file_path_handler,0);
-
+    mg_set_request_handler(context,"/run",app_launcher_handler,0);
+    mg_set_request_handler(context,"/delete",delete_app_handler,0);
     //Server Info
     std::cout << "Server running on http://localhost:9090" << std::endl;
-    std::cout << "Press Enter To Stop Server";
+    std::cout << "Press Enter To Stop Server"<< std::endl;
     getchar();  
     
     mg_stop(context);

@@ -33,3 +33,4 @@ target_link_libraries(Elevate
 
 add_definitions(-DNO_SSL)
 
+set(CMAKE_GENERATOR_PLATFORM x64)

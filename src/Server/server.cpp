@@ -130,8 +130,25 @@ int app_launcher_handler(struct mg_connection *connection,void *callback_data){
     char app_parameter[1020]={0};
     int app_parameter_lenght = mg_read(connection,app_parameter,sizeof(app_parameter));
     app_parameter[app_parameter_lenght];
-
-    std::cout << "Running: "<< app_parameter << std::endl;
+    //Load JSON
+    nlohmann::json app_lists_json;
+    std::ifstream in("Ui/JSON/app.json");
+    if(!in.is_open()){
+        std::cerr << "Failed To Open JSON,Check The File Path \n";
+        return 1; 
+    }try{
+        in >> app_lists_json;
+    }catch(const std::exception& e){
+        std::cerr << "Failed To Parse JSON or JSON Is Invalid:" << e.what() << "\n";
+        return 1;
+    }
+    for(const auto& entry : app_lists_json["app_lists"]){
+        if(entry.contains(app_parameter)){
+            std::string app_that_running = entry[app_parameter]["app_location"];
+            std::cout << "Running: "<< app_parameter  << std::endl;
+            create_process(app_parameter,app_that_running);
+        }
+    }
 
    mg_printf(connection,
        "HTTP/1.1 303 OK\r\n"
@@ -171,7 +188,6 @@ int delete_app_handler(struct mg_connection *connection, void *) {
     std::ofstream out("Ui/JSON/app.json");
     out << app_lists_json.dump(4);
     out.close();
-
     mg_printf(connection,
         "HTTP/1.1 200 OK\r\n"
         "Content-Type: text/plain\r\n"

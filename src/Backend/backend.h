@@ -10,4 +10,5 @@
 #include "json.hpp"
 std::string get_local_system_time();
 std::string get_app_path();
+void create_process(const std::string& app_name,const std::string& app);
 #endif // !WIN_API_H

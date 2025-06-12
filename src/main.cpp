@@ -27,6 +27,7 @@ int main() {
     //Server Info
     std::cout << "Server running on http://localhost:9090" << std::endl;
     std::cout << "Press Enter To Stop Server"<< std::endl;
+
     getchar();  
     
     mg_stop(context);

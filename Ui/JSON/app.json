@@ -1,13 +1,13 @@
 {
     "app_lists": [
         {
-            "KingOfFighters2002UM": {
-                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\KingOfFighters2002UM.exe"
+            "libresprite": {
+                "app_location": "D:\\libresprite-development-windows-x86_64\\libresprite.exe"
             }
         },
         {
-            "KingOfFighters2002UM_x64": {
-                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\KingOfFighters2002UM_x64.exe"
+            "citra-qt": {
+                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra-qt.exe"
             }
         }
     ]

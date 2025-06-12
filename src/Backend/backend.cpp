@@ -79,3 +79,27 @@ std::string get_app_path() {
 
     return app_path_to_string;
 }
+void create_process(const std::string& app_name,const std::string& app){
+    STARTUPINFOA si={sizeof(si)};
+    PROCESS_INFORMATION pi;
+
+    if(!CreateProcessA(
+        nullptr,
+        const_cast<char*>(app.c_str()),
+        nullptr,
+        nullptr,
+        FALSE,
+        0,
+        nullptr,
+        nullptr,
+        &si,
+        &pi
+    )){
+        throw std::runtime_error("Failed to launch app: " + app);
+    };
+
+    WaitForSingleObject(pi.hProcess,INFINITE);
+    std::cout << app_name << " has closed" << std::endl;
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+}

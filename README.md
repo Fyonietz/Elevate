@@ -65,6 +65,8 @@ Pull requests are welcome! Please open an issue first to discuss your ideas.
 
 [MIT](LICENSE)
 
+## Thanks To
+Civetweb:(https://github.com/civetweb) for embedded http server 
 ---
 
 Feel free to modify or expand this README to better fit your project's specific details! If you want the README.md as a file, let me know.

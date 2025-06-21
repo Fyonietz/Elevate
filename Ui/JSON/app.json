@@ -1,13 +1,21 @@
 {
     "app_lists": [
         {
-            "libresprite": {
-                "app_location": "D:\\libresprite-development-windows-x86_64\\libresprite.exe"
+            "citra-qt": {
+                "app_image": "/Assets/icon/citra-qt.PNG",
+                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra-qt.exe"
             }
         },
         {
-            "citra-qt": {
-                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra-qt.exe"
+            "fmMASKING": {
+                "app_image": "/Assets/icon/fmMASKING.PNG",
+                "app_location": "D:\\Games\\Football Manager 2016\\fmMASKING.exe"
+            }
+        },
+        {
+            "snes9x-x64": {
+                "app_image": "/Assets/icon/snes9x-x64.PNG",
+                "app_location": "D:\\Games\\SNES\\snes9x-x64.exe"
             }
         }
     ]

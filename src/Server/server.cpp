@@ -78,8 +78,8 @@ int static_file_handler(struct mg_connection *connection, void *callback_data) {
     }
 
     const char *mime = get_mime_type(file_path);
-    mg_printf(connection, "HTTP/1.1 200 OK\r\nContent-Type: %s\r\nContent-Length: %ld\r\n\r\n", mime, file_size);
 
+    
     char buffer[1024];
     size_t n;
     while ((n = fread(buffer, 1, sizeof(buffer), file)) > 0) {
@@ -127,9 +127,16 @@ int save_file_path_handler(struct mg_connection *connection,void *callback_data)
 }
 
 int app_launcher_handler(struct mg_connection *connection,void *callback_data){
-    char app_parameter[1020]={0};
-    int app_parameter_lenght = mg_read(connection,app_parameter,sizeof(app_parameter));
-    app_parameter[app_parameter_lenght];
+    char app_parameter[1020] = {0};
+    int app_parameter_lenght = mg_read(connection, app_parameter, sizeof(app_parameter) - 1);
+    app_parameter[app_parameter_lenght] = '\0';
+    std::string param_str(app_parameter);
+    std::string app_name;
+    auto pos = param_str.find('=');
+    if (pos != std::string::npos)
+        app_name = param_str.substr(pos + 1);
+    else
+        app_name = param_str;
     //Load JSON
     nlohmann::json app_lists_json;
     std::ifstream in("Ui/JSON/app.json");
@@ -143,10 +150,10 @@ int app_launcher_handler(struct mg_connection *connection,void *callback_data){
         return 1;
     }
     for(const auto& entry : app_lists_json["app_lists"]){
-        if(entry.contains(app_parameter)){
-            std::string app_that_running = entry[app_parameter]["app_location"];
-            std::cout << "Running: "<< app_parameter  << std::endl;
-            create_process(app_parameter,app_that_running);
+        if(entry.contains(app_name)){
+            std::string app_that_running = entry[app_name]["app_location"];
+            std::cout << "Running: "<< app_name  << std::endl;
+            create_process(app_name,app_that_running);
         }
     }
 

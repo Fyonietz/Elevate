@@ -8,7 +8,27 @@
 #include <filesystem>
 #include "tinyfiledialogs.h"
 #include "json.hpp"
+#include <shellapi.h>
+#include <gdiplus.h>
+#include <thread>
+//API For Time 
 std::string get_local_system_time();
+//API For App Path
 std::string get_app_path();
+//API For Running App
 void create_process(const std::string& app_name,const std::string& app);
+//API For Get File Icon
+class GDIPlusManager{
+    public:
+        GDIPlusManager();
+        ~GDIPlusManager();
+    private:
+        ULONG_PTR gdiplusToken;
+};
+//Thread
+void extract_icon_async(const std::string& exe_path,const std::wstring& icon_save_path);
+
+void get_file_icon(const char* input_path,const wchar_t* output_path);
+//Converter API
+wchar_t* ConvertToWChar(const std::string& str);
 #endif // !WIN_API_H

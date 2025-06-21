@@ -4,11 +4,13 @@
 
 int main() {
     //Server Setup
-    const char *config[] = {
-        "document_root", "Ui",
-        "listening_ports", "9090",
-        0
-    };
+const char *config[] = {
+    "document_root", "Ui",
+    "listening_ports", "9090",
+     "num_threads", "8",
+    // "enable_keep_alive", "yes",
+    0
+};
     struct mg_callbacks callbacks = {};
     struct mg_context *context = mg_start(&callbacks, 0, config);
     if (!context) {
@@ -17,7 +19,7 @@ int main() {
     }
 
     //Routes Register
-    mg_set_request_handler(context, "/", static_file_handler, 0);
+    // mg_set_request_handler(context, "/", static_file_handler, 0);
     mg_set_request_handler(context,"/api",request_handler,0);
     mg_set_request_handler(context,"/time",time_handler,0);
     mg_set_request_handler(context,"/api/save",save_json_handler,0);

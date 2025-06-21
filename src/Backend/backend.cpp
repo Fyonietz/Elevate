@@ -106,6 +106,8 @@ void create_process(const std::string& app_name,const std::string& app){
         )){
             std::cerr << "Failed To Launch: " << app << std::endl;
             return;
+        }else{
+            std::cout << "PID: " << pi.dwProcessId << std::endl;
         }
         CloseHandle(pi.hProcess);
         CloseHandle(pi.hThread);

@@ -7,8 +7,8 @@ int main() {
 const char *config[] = {
     "document_root", "Ui",
     "listening_ports", "9090",
-     "num_threads", "8",
-    // "enable_keep_alive", "yes",
+     "num_threads", "64",
+    "enable_keep_alive", "yes",
     0
 };
     struct mg_callbacks callbacks = {};

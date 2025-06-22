@@ -45,7 +45,7 @@ function renderApps() {
     const appDiv = document.createElement('div');
     appDiv.innerHTML = `
       <button style="background-image:url('${app.image}');background-repeat:no-repeat;background-position:center" class="btn"  onclick="runApps('${app.name.replace(/'/g, "\\'")}')"></button>
-      <button onclick="deleteApp(${idx})">Delete</button>
+      <button onclick="deleteApp(${idx})" class="del-btn" id="del-btn">X</button>
     `;
     listDiv.appendChild(appDiv);
   });
@@ -76,3 +76,9 @@ window.deleteApp = function(idx) {
   }
 };
 
+function toggle_delete() {
+  var delBtns = document.querySelectorAll('.del-btn');
+  delBtns.forEach(function(btn) {
+    btn.style.display = (btn.style.display === "none" || btn.style.display === "") ? "block" : "none";
+  });
+}

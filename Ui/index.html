@@ -4,16 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elevate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style-dev.css">
 </head>
 <body>
-      <p  id="clock"></p>
-        
-          <button id="os-path-btn">Add  App</button>
-        
-    <div id="crud-app">
-  <div id="apps-list"></div>
+  <div class="up-bar">
+      <p  id="clock" class="clock"></p>
+  </div>
+      
+  <!-- add button -->
+ <button id="os-path-btn">Add  App</button>
+  
+ 
+ <button onclick="toggle_delete(this)" class="control-app">Del</button>
+
+
+ <div class="app-container"> 
+
+  <div id="apps-list" class="apps-list">
+ 
+    <!-- App buttons will be rendered here -->
+  </div>
 </div>
+ 
 
     <script src="/script.js"></script>
     

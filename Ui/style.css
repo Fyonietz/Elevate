@@ -1,3 +1,37 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("Assets/bg.png");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin:0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.up-bar{
+    height: 40px;
+    border:#D72638 solid 1px;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 2%;
+}
+.clock{
+    align-self: center;
+    color:#D72638;
+    text-align: end;
+    font-family: "JetBrains Mono",monospace;
+    font-style: normal;
+    margin-right: 2%;
+    font-size: 2rem;
+}
+
 h1{
     color:red;
 }
@@ -7,6 +41,52 @@ h1{
     width:50px;
     height:50px;
     background: transparent;
-    border-radius: 50%;
-    border:none;
+    border:#D72638 solid 1px;
+}
+
+.btn:hover{
+    background-color: #D72638;
+}
+.app-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.apps-list{
+    position: absolute;
+    top: 90vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center ;
+    height: 50px;
+    border: #D72638 solid 1px;
+    /* left: 30%; */
+}
+
+.del-btn {
+    display: none;
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border: #D72638 solid 1px;
+    color: white;
+    background-color: #D72638;
+    margin-top: -100%;
+    z-index: 3;
+}
+.del-btn:hover{
+    transition: 0.5s;
+    opacity: 20%;
+}
+.control-app{
+ float: right;
+    width:50px;
+    height:50px;
+    background: #D72638;
+    border:#D72638 solid 1px;
+
+}
+.hidden{
+    display: none;
 }

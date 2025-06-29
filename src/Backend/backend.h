@@ -31,4 +31,6 @@ void extract_icon_async(const std::string& exe_path,const std::wstring& icon_sav
 void get_file_icon(const char* input_path,const wchar_t* output_path);
 //Converter API
 wchar_t* ConvertToWChar(const std::string& str);
+//JSON Loader
+std::vector<std::string> find_all_json_files(const std::string &root_dir);
 #endif // !WIN_API_H

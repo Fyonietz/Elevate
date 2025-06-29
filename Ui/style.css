@@ -14,23 +14,106 @@ body{
     width: 100%;
     overflow-x: hidden;
     transition: 0.5s;
+    font-family: "JetBrains Mono",monospace;
 }
 
 .up-bar{
     height: 40px;
     border:#D72638 solid 1px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     padding-left: 2%;
 }
-.clock{
-    align-self: center;
-    color:#D72638;
+.clock {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #D72638;
     text-align: center;
-    font-family: "JetBrains Mono",monospace;
-    font-style: normal;
-    margin-right: 43%;
+    font-family: "JetBrains Mono", monospace;
     font-size: 2rem;
+}
+.app-search{
+    color: white;
+    font-family: "JetBrains Mono",monospace;
+    background-color: #D72638;
+    height: 100%;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left:-3%;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.app-search-menu {
+    position: absolute;
+    left: 50%;
+    top: 25%; /* below the up-bar */
+    transform: translateX(-50%);
+    width: 500px;
+    min-height: 300px;
+   background-color: rgba(30, 30, 30, 0.95);
+    border: 2px solid #D72638;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    z-index: 1000;
+    display: none; /* hidden by default */
+    padding: 20px 16px;
+}
+.app-search-menu::before{
+       content: "火 ";
+      font-size: 15rem;
+      color: rgba(215, 38, 56,0.5); /* red with transparency */
+     position: absolute;
+     top: 60%;
+     left: 50%;
+    transform: translate(-50%, -55%);
+     pointer-events: none; /* allow clicks through */
+     z-index: -1;
+}
+.app-search-menu.active {
+    display: block;
+    animation: fadeInMenu 0.2s;
+}
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateX(-50%) scale(0.95);}
+    to   { opacity: 1; transform: translateX(-50%) scale(1);}
+}
+#search-results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+#search-results li {
+  padding: 8px 12px;
+  color: #fff;
+  background: #333;
+  border-bottom: 1px solid #222;
+  transition: background 0.2s;
+}
+#search-results li:hover {
+  background: #D72638;
+  color: #fff;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1.1rem;
+  font-family: "JetBrains Mono", monospace;
+  border: 2px solid #D72638;
+  border-radius: 6px;
+  background: #181818;
+  color: #fff;
+  outline: none;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 h1{
@@ -70,10 +153,10 @@ h1{
     position: relative;
     height: 50px;
     width: 50px;
-    border: #D72638 solid 1px;
+    border:none;
     color: white;
     background-color: #D72638;
-    margin-top: -100%;
+    margin-top: -104%;
     z-index: 3;
 }
 .del-btn:hover{
@@ -88,6 +171,78 @@ h1{
     border:#D72638 solid 1px;
 
 }
-.hidden{
-    display: none;
+.menu {
+  position: absolute;
+  display: block;
+  background-color: rgba(30, 30, 30, 0.95);
+  border: 1px solid #D72638;
+  font-family: "JetBrains Mono", monospace;
+  z-index: 10000;
+  width: 200px;
+  padding: 5px 0;
+  box-shadow: 0 0 10px rgba(215, 38, 56, 0.5);
+  transition: 0.3s;
 }
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  position: relative;
+  padding: 10px 15px;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.menu li:hover {
+  background-color: #D72638;
+}
+
+.has-submenu .submenu-window {
+  position: absolute;
+  top: 0;
+  left: 200px; /* open to the right, use negative value for left */
+  display: none;
+  width: 180px;
+  background-color: rgba(30, 30, 30, 0.95);
+  border: 1px solid #D72638;
+  box-shadow: 0 0 10px rgba(215, 38, 56, 0.5);
+  z-index: 10001;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.title-bar {
+  background: #D72638;
+  color: white;
+  padding: 6px;
+  font-size: 0.9rem;
+  cursor: default;
+}
+
+.submenu-window ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.submenu-window li {
+  padding: 8px 12px;
+}
+
+.submenu-window li:hover {
+  background-color: #D72638;
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu-window {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+

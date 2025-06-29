@@ -205,3 +205,13 @@ void extract_icon_async(const std::string& exe_path, const std::wstring& icon_sa
         get_file_icon(exe_path.c_str(), icon_save_path.c_str());
     }).detach();
 }
+
+std::vector<std::string> find_all_json_files(const std::string &root_dir){
+    std::vector<std::string> json_files;
+    for(const auto &entry : std::filesystem::recursive_directory_iterator(root_dir)){
+        if(entry.is_regular_file() && entry.path().extension() == ".json"){
+            json_files.push_back(entry.path().string());
+        }
+    }
+    return json_files;
+}

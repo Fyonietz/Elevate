@@ -12,14 +12,19 @@
 </head>
 <body>
   <div class="up-bar">
+    <div class="app-search">
+        山
+    </div>
       <p  id="clock" class="clock"></p>
   </div>
-      
-  <!-- add button -->
- <button id="os-path-btn">Add  App</button>
-  
- 
- <button onclick="toggle_delete(this)" class="control-app">Del</button>
+    <div class="app-search-menu">
+      <form action="">
+        <input type="text" name="" id="search-input" autocomplete="off">
+      </form>
+      <ul id="search-results"></ul>
+    </div>
+
+
 
 
  <div class="app-container"> 
@@ -30,6 +35,31 @@
   </div>
 </div>
  
+<div id="custom-menu" class="menu hidden">
+  <ul>
+    <li class="has-submenu">
+      Taskbar
+      <div class="submenu-window">
+        <div class="title-bar">Taskbar Options</div>
+        <ul>
+          <li onclick="add_app()">Add An App</li>
+          <li onclick="toggle_delete()">Delete An App</li>
+        </ul>
+      </div>
+    </li>
+    <li>Refresh</li>
+    <li class="has-submenu">
+      Properties
+      <div class="submenu-window">
+        <div class="title-bar">Properties</div>
+        <ul>
+          <li>Details</li>
+          <li>Permissions</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
 
     <script src="/script.js"></script>
     

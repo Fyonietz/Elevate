@@ -137,27 +137,35 @@ int app_launcher_handler(struct mg_connection *connection,void *callback_data){
         app_name = param_str.substr(pos + 1);
     else
         app_name = param_str;
-    //Load JSON
-    nlohmann::json app_lists_json;
-    std::ifstream in("Ui/JSON/app.json");
-    if(!in.is_open()){
-        std::cerr << "Failed To Open JSON,Check The File Path \n";
-        return 1; 
-    }try{
-        in >> app_lists_json;
-    }catch(const std::exception& e){
-        std::cerr << "Failed To Parse JSON or JSON Is Invalid:" << e.what() << "\n";
-        return 1;
-    }
-    for(const auto& entry : app_lists_json["app_lists"]){
-        if(entry.contains(app_name)){
-            std::string app_that_running = entry[app_name]["app_location"];
-            std::cout << "Running: "<< app_name  << std::endl;
-            create_process(app_name,app_that_running);
+
+    // Try app.json first, then search.json
+    std::vector<std::string> json_files = find_all_json_files("Ui/JSON");
+    bool found = false;
+    std::string app_that_running;
+    for (const auto& json_file : json_files) {
+        nlohmann::json app_lists_json;
+        std::ifstream in(json_file);
+        if (!in.is_open()) continue;
+        try {
+            in >> app_lists_json;
+        } catch (...) {
+            continue;
         }
+        for (const auto& entry : app_lists_json["app_lists"]) {
+            if (entry.contains(app_name)) {
+                app_that_running = entry[app_name]["app_location"];
+                found = true;
+                break;
+            }
+        }
+        if (found) break;
+    }
+    if (found) {
+        std::cout << "Running: " << app_name << std::endl;
+        create_process(app_name, app_that_running);
     }
 
-   mg_printf(connection,
+    mg_printf(connection,
        "HTTP/1.1 303 OK\r\n"
         "Location : /\r\n"
         "Content-Length: 2\r\n"

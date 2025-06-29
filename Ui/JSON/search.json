@@ -1,0 +1,322 @@
+{
+    "app_lists": [
+        {
+            "citra-qt": {
+                "app_image": "/Assets/icon/citra-qt.png",
+                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra-qt.exe"
+            }
+        },
+        {
+            "citra-room": {
+                "app_image": "/Assets/icon/citra-room.png",
+                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra-room.exe"
+            }
+        },
+        {
+            "citra": {
+                "app_image": "/Assets/icon/citra.png",
+                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra.exe"
+            }
+        },
+        {
+            "DeSmuME_0.9.13_x64": {
+                "app_image": "/Assets/icon/DeSmuME_0.9.13_x64.png",
+                "app_location": "D:\\Games\\desmume-0.9.13-win64\\DeSmuME_0.9.13_x64.exe"
+            }
+        },
+        {
+            "DeSmuME_X432R_x64": {
+                "app_image": "/Assets/icon/DeSmuME_X432R_x64.png",
+                "app_location": "D:\\Games\\desmume-0.9.13-win64\\DeSmuME_X432R_x64.exe"
+            }
+        },
+        {
+            "DeSmuME_X432R_x86": {
+                "app_image": "/Assets/icon/DeSmuME_X432R_x86.png",
+                "app_location": "D:\\Games\\desmume-0.9.13-win64\\DeSmuME_X432R_x86.exe"
+            }
+        },
+        {
+            "fm25": {
+                "app_image": "/Assets/icon/fm25.png",
+                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\Football.Manager.2020\\fm25.exe"
+            }
+        },
+        {
+            "dxwebsetup": {
+                "app_image": "/Assets/icon/dxwebsetup.png",
+                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\_Redist\\dxwebsetup.exe"
+            }
+        },
+        {
+            "oalinst": {
+                "app_image": "/Assets/icon/oalinst.png",
+                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\_Redist\\oalinst.exe"
+            }
+        },
+        {
+            "vcredist_2015-2019_x64": {
+                "app_image": "/Assets/icon/vcredist_2015-2019_x64.png",
+                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\_Redist\\vcredist_2015-2019_x64.exe"
+            }
+        },
+        {
+            "vcredist_2015-2019_x86": {
+                "app_image": "/Assets/icon/vcredist_2015-2019_x86.png",
+                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\_Redist\\vcredist_2015-2019_x86.exe"
+            }
+        },
+        {
+            "vcredist_x64": {
+                "app_image": "/Assets/icon/vcredist_x64.png",
+                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\_Redist\\vcredist_x64.exe"
+            }
+        },
+        {
+            "vcredist_x86": {
+                "app_image": "/Assets/icon/vcredist_x86.png",
+                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\_Redist\\vcredist_x86.exe"
+            }
+        },
+        {
+            "WallaceSrc": {
+                "app_image": "/Assets/icon/WallaceSrc.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\docs\\GhidraClass\\ExerciseFiles\\VersionTracking\\WallaceSrc.exe"
+            }
+        },
+        {
+            "WallaceVersion2": {
+                "app_image": "/Assets/icon/WallaceVersion2.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\docs\\GhidraClass\\ExerciseFiles\\VersionTracking\\WallaceVersion2.exe"
+            }
+        },
+        {
+            "WinHelloCPP": {
+                "app_image": "/Assets/icon/WinHelloCPP.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\docs\\GhidraClass\\ExerciseFiles\\WinhelloCPP\\WinHelloCPP.exe"
+            }
+        },
+        {
+            "decompile": {
+                "app_image": "/Assets/icon/decompile.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\Decompiler\\os\\win_x86_64\\decompile.exe"
+            }
+        },
+        {
+            "sleigh": {
+                "app_image": "/Assets/icon/sleigh.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\Decompiler\\os\\win_x86_64\\sleigh.exe"
+            }
+        },
+        {
+            "lzfse": {
+                "app_image": "/Assets/icon/lzfse.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\FileFormats\\os\\win_x86_64\\lzfse.exe"
+            }
+        },
+        {
+            "wininst-6.0": {
+                "app_image": "/Assets/icon/wininst-6.0.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\Jython\\data\\jython-2.7.4\\Lib\\distutils\\command\\wininst-6.0.exe"
+            }
+        },
+        {
+            "wininst-7.1": {
+                "app_image": "/Assets/icon/wininst-7.1.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\Jython\\data\\jython-2.7.4\\Lib\\distutils\\command\\wininst-7.1.exe"
+            }
+        },
+        {
+            "wininst-8.0": {
+                "app_image": "/Assets/icon/wininst-8.0.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\Jython\\data\\jython-2.7.4\\Lib\\distutils\\command\\wininst-8.0.exe"
+            }
+        },
+        {
+            "wininst-9.0-amd64": {
+                "app_image": "/Assets/icon/wininst-9.0-amd64.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\Jython\\data\\jython-2.7.4\\Lib\\distutils\\command\\wininst-9.0-amd64.exe"
+            }
+        },
+        {
+            "wininst-9.0": {
+                "app_image": "/Assets/icon/wininst-9.0.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\Jython\\data\\jython-2.7.4\\Lib\\distutils\\command\\wininst-9.0.exe"
+            }
+        },
+        {
+            "pdb": {
+                "app_image": "/Assets/icon/pdb.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\Ghidra\\Features\\PDB\\os\\win_x86_64\\pdb.exe"
+            }
+        },
+        {
+            "demangler_gnu_v2_24": {
+                "app_image": "/Assets/icon/demangler_gnu_v2_24.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\GPL\\DemanglerGnu\\os\\win_x86_64\\demangler_gnu_v2_24.exe"
+            }
+        },
+        {
+            "demangler_gnu_v2_41": {
+                "app_image": "/Assets/icon/demangler_gnu_v2_41.png",
+                "app_location": "D:\\Games\\ghidra_11.3.2_PUBLIC_20250415\\ghidra_11.3.2_PUBLIC\\GPL\\DemanglerGnu\\os\\win_x86_64\\demangler_gnu_v2_41.exe"
+            }
+        },
+        {
+            "PES17Selector4k": {
+                "app_image": "/Assets/icon/PES17Selector4k.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\PES17Selector4k.exe"
+            }
+        },
+        {
+            "PES2017": {
+                "app_image": "/Assets/icon/PES2017.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\PES2017.exe"
+            }
+        },
+        {
+            "Settings": {
+                "app_image": "/Assets/icon/Settings.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\Settings.exe"
+            }
+        },
+        {
+            "DpFileList Generator 1.3": {
+                "app_image": "/Assets/icon/DpFileList Generator 1.3.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\Tools\\DpFileListGenerator\\DpFileList Generator 1.3.exe"
+            }
+        },
+        {
+            "PESMLMoneyTool2017": {
+                "app_image": "/Assets/icon/PESMLMoneyTool2017.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\Tools\\PES ML Money Tool 2017 V3\\PESMLMoneyTool2017.exe"
+            }
+        },
+        {
+            "decrypter17": {
+                "app_image": "/Assets/icon/decrypter17.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\Tools\\PES Option File Editor\\Lib\\decrypter17.exe"
+            }
+        },
+        {
+            "decrypter18": {
+                "app_image": "/Assets/icon/decrypter18.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\Tools\\PES Option File Editor\\Lib\\decrypter18.exe"
+            }
+        },
+        {
+            "encrypter17": {
+                "app_image": "/Assets/icon/encrypter17.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\Tools\\PES Option File Editor\\Lib\\encrypter17.exe"
+            }
+        },
+        {
+            "encrypter18": {
+                "app_image": "/Assets/icon/encrypter18.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\Tools\\PES Option File Editor\\Lib\\encrypter18.exe"
+            }
+        },
+        {
+            "PES2018Editor": {
+                "app_image": "/Assets/icon/PES2018Editor.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\Tools\\PES Option File Editor\\PES2018Editor.exe"
+            }
+        },
+        {
+            "unins000": {
+                "app_image": "/Assets/icon/unins000.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\unins000.exe"
+            }
+        },
+        {
+            "vaname": {
+                "app_image": "/Assets/icon/vaname.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\vaname.exe"
+            }
+        },
+        {
+            "dotNetFx40_Full_x86_x64": {
+                "app_image": "/Assets/icon/dotNetFx40_Full_x86_x64.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\_Redist\\dotNetFx40_Full_x86_x64.exe"
+            }
+        },
+        {
+            "dxwebsetup": {
+                "app_image": "/Assets/icon/dxwebsetup.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\_Redist\\dxwebsetup.exe"
+            }
+        },
+        {
+            "vcredist_x64_2010_sp1_x64": {
+                "app_image": "/Assets/icon/vcredist_x64_2010_sp1_x64.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\_Redist\\vcredist_x64_2010_sp1_x64.exe"
+            }
+        },
+        {
+            "vcredist_x86_2010_sp1_x86": {
+                "app_image": "/Assets/icon/vcredist_x86_2010_sp1_x86.png",
+                "app_location": "D:\\Games\\Pro Evolution Soccer 2017\\_Redist\\vcredist_x86_2010_sp1_x86.exe"
+            }
+        },
+        {
+            "snes9x-x64": {
+                "app_image": "/Assets/icon/snes9x-x64.png",
+                "app_location": "D:\\Games\\SNES\\snes9x-x64.exe"
+            }
+        },
+        {
+            "KingOfFighters2002UM": {
+                "app_image": "/Assets/icon/KingOfFighters2002UM.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\KingOfFighters2002UM.exe"
+            }
+        },
+        {
+            "KingOfFighters2002UM_x64": {
+                "app_image": "/Assets/icon/KingOfFighters2002UM_x64.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\KingOfFighters2002UM_x64.exe"
+            }
+        },
+        {
+            "dotNetFx40_Full_setup": {
+                "app_image": "/Assets/icon/dotNetFx40_Full_setup.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\_Redist\\dotNetFx40_Full_setup.exe"
+            }
+        },
+        {
+            "dxwebsetup": {
+                "app_image": "/Assets/icon/dxwebsetup.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\_Redist\\dxwebsetup.exe"
+            }
+        },
+        {
+            "oalinst": {
+                "app_image": "/Assets/icon/oalinst.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\_Redist\\oalinst.exe"
+            }
+        },
+        {
+            "vcredist_2015-2019_x64": {
+                "app_image": "/Assets/icon/vcredist_2015-2019_x64.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\_Redist\\vcredist_2015-2019_x64.exe"
+            }
+        },
+        {
+            "vcredist_2015-2019_x86": {
+                "app_image": "/Assets/icon/vcredist_2015-2019_x86.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\_Redist\\vcredist_2015-2019_x86.exe"
+            }
+        },
+        {
+            "vcredist_x64": {
+                "app_image": "/Assets/icon/vcredist_x64.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\_Redist\\vcredist_x64.exe"
+            }
+        },
+        {
+            "vcredist_x86": {
+                "app_image": "/Assets/icon/vcredist_x86.png",
+                "app_location": "D:\\Games\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\THE.KING.OF.FIGHTERS.2002.UNLIMITED.MATCH.v2022.03.30\\_Redist\\vcredist_x86.exe"
+            }
+        }
+    ]
+}

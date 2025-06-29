@@ -92,23 +92,35 @@ void create_process(const std::string& app_name,const std::string& app){
    std::thread([app_name,app](){
         STARTUPINFOA si={sizeof(si)};
         PROCESS_INFORMATION pi;
+        std::string shellCmd = "cmd.exe /c start \"\" \"" + app + "\"";
+        std::vector<char> cmd(shellCmd.begin(), shellCmd.end());
+        
+        //Working dir
+        std::string::size_type last_position = app.find_last_of("\\/");
+        std::string working_direction =(last_position != std::string::npos) ? app.substr(0,last_position) : "";
+
+        // std::vector<char> cmd(app.begin(),app.end());
+        cmd.push_back('\0');
         if(!CreateProcessA(
             nullptr,
-            const_cast<char*>(app.c_str()),
+            cmd.data(),
             nullptr,
             nullptr,
             FALSE,
             CREATE_NEW_CONSOLE,
             nullptr,
-            nullptr,
+            working_direction.empty() ? nullptr:working_direction.c_str(),
             &si,
             &pi
         )){
-            std::cerr << "Failed To Launch: " << app << std::endl;
+            DWORD err = GetLastError();
+            std::cerr << "Failed To Launch: " << app << " " << err << std::endl;
             return;
         }else{
             std::cout << "PID: " << pi.dwProcessId << std::endl;
         }
+        WaitForSingleObject(pi.hProcess,INFINITE);
+        // std::cout << app_name << " has closed "<< std::endl;
         CloseHandle(pi.hProcess);
         CloseHandle(pi.hThread);
    }).detach();

@@ -1,4 +1,7 @@
 // Time Updater
+ document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
 setInterval(() => {
     fetch("/time")
         .then(res => res.text())

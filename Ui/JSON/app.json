@@ -1,27 +1,27 @@
 {
     "app_lists": [
         {
-            "fm25": {
-                "app_image": "/Assets/icon/fm25.PNG",
-                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\Football.Manager.2020\\fm25.exe"
-            }
-        },
-        {
-            "dbeaver": {
-                "app_image": "/Assets/icon/dbeaver.PNG",
-                "app_location": "C:\\Users\\Hakaitou\\AppData\\Local\\DBeaver\\dbeaver.exe"
-            }
-        },
-        {
             "Code": {
                 "app_image": "/Assets/icon/Code.PNG",
                 "app_location": "C:\\Users\\Hakaitou\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             }
         },
         {
-            "citra": {
-                "app_image": "/Assets/icon/citra.PNG",
-                "app_location": "D:\\Games\\citra-windows-msvc-20240927-608383e\\citra.exe"
+            "steam": {
+                "app_image": "/Assets/icon/steam.PNG",
+                "app_location": "C:\\Program Files (x86)\\Steam\\steam.exe"
+            }
+        },
+        {
+            "vlc": {
+                "app_image": "/Assets/icon/vlc.PNG",
+                "app_location": "C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe"
+            }
+        },
+        {
+            "fm25": {
+                "app_image": "/Assets/icon/fm25.PNG",
+                "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\Football.Manager.2020\\fm25.exe"
             }
         }
     ]

@@ -8,6 +8,7 @@ body{
     background-position: center 0;
     background-repeat: no-repeat;
     background-size: 100%;
+    background-color: rgb(30, 30, 30);
     margin:0;
     height: 100%;
     width: 100%;
@@ -25,10 +26,10 @@ body{
 .clock{
     align-self: center;
     color:#D72638;
-    text-align: end;
+    text-align: center;
     font-family: "JetBrains Mono",monospace;
     font-style: normal;
-    margin-right: 2%;
+    margin-right: 43%;
     font-size: 2rem;
 }
 

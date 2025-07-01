@@ -23,6 +23,12 @@
                 "app_image": "/Assets/icon/fm25.PNG",
                 "app_location": "D:\\Games\\Football.Manager.2020(GamingBeasts.com)\\Football.Manager.2020\\Football.Manager.2020\\fm25.exe"
             }
+        },
+        {
+            "brave": {
+                "app_image": "/Assets/icon/brave.PNG",
+                "app_location": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+            }
         }
     ]
 }

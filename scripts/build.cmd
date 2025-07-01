@@ -1,7 +1,5 @@
 cd ..
-cmake -S . -B build
-cd .\build
-make -j4
-cd ..
+cmake -S . -B build -G "Ninja"
+cmake --build build
 cd .\scripts
 .\start.cmd

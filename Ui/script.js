@@ -244,7 +244,7 @@ function updateSelection(items) {
 // ================================
 document.addEventListener("keydown", function (e) {
   // Ctrl + / to open/close
-  if (e.altKey) {
+  if (e.key=="CapsLock") {
     searchMenu.classList.toggle("active");
     const input = searchMenu.querySelector("input");
     if (searchMenu.classList.contains("active") && input) input.focus();

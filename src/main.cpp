@@ -29,7 +29,8 @@ const char *config[] = {
     //Server Info
     std::cout << "Server running on http://localhost:9090" << std::endl;
     std::cout << "Press Enter To Stop Server"<< std::endl;
-
+    Sleep(1000);
+    create_process("UI","NWeb.exe");
     getchar();  
     
     mg_stop(context);

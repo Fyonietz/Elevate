@@ -16,6 +16,9 @@ body{
     transition: 0.5s;
     font-family: "JetBrains Mono",monospace;
 }
+input {
+  text-transform: lowercase;
+}
 
 .up-bar{
     height: 40px;

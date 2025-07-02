@@ -59,13 +59,13 @@ Clicking on the "Calculator" icon in the web launcher UI will start the Windows 
 ## Route Lists
 
 **Info**
--`(sys_info/time)` For Getting Time
+- `(sys_info/time)` For Getting Time
 
 **Action**
--`(sys_act/save)` For Save JSON File In Taskbar
--`(sys_act/path)` For Getting Path In JSON
--`(sys_act/run)` For Running App In Elevate
--`(sys_act/delete)` For Deleting App In JSON Lists
+- `(sys_act/save)` For Save JSON File In Taskbar
+- `(sys_act/path)` For Getting Path In JSON
+- `(sys_act/run)` For Running App In Elevate
+- `(sys_act/delete)` For Deleting App In JSON Lists
 ## Contributing
 
 Pull requests are welcome! Please open an issue first to discuss your ideas.

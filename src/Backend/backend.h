@@ -33,4 +33,6 @@ void get_file_icon(const char* input_path,const wchar_t* output_path);
 wchar_t* ConvertToWChar(const std::string& str);
 //JSON Loader
 std::vector<std::string> find_all_json_files(const std::string &root_dir);
+//Terminal
+void cmd(std::string &command);
 #endif // !WIN_API_H

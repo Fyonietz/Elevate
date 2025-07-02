@@ -215,3 +215,8 @@ std::vector<std::string> find_all_json_files(const std::string &root_dir){
     }
     return json_files;
 }
+
+void cmd(std::string &command){
+
+
+};

@@ -60,6 +60,7 @@ Clicking on the "Calculator" icon in the web launcher UI will start the Windows 
 
 **Info**
 - `(sys_info/time)` For Getting Time
+
 **Action**
 - `(sys_act/save)` For Save JSON File In Taskbar
 - `(sys_act/add)` For Adding App To JSON(Taskbar)

@@ -55,7 +55,7 @@ document.addEventListener("click", function () {
 // 4. Time Updater (Fetch from Server Every Second)
 // ================================
 setInterval(() => {
-  fetch("/time")
+  fetch("sys_info/time")
     .then((res) => res.text())
     .then((time) => {
       document.getElementById("clock").textContent = time;
@@ -74,7 +74,7 @@ let filteredApps = [];
 window.onload = loadApps;
 
 function add_app() {
-  fetch("/os/path", { method: "POST" })
+  fetch("/sys_act/add", { method: "POST" })
     .then((res) => res.text())
     .then(() => {
       setTimeout(loadApps, 100);
@@ -116,7 +116,7 @@ function renderApps(appList = apps) {
 }
 
 function runApps(name) {
-  fetch("/run", {
+  fetch("/sys_act/run", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: "name=" + encodeURIComponent(name),
@@ -126,7 +126,7 @@ function runApps(name) {
 window.deleteApp = function (idx) {
   if (confirm("Are you sure you want to delete this app?")) {
     const appName = apps[idx].name;
-    fetch("/delete", {
+    fetch("/sys_act/delete", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: "name=" + encodeURIComponent(appName),

@@ -28,12 +28,17 @@ const char *config[] = {
     mg_set_request_handler(context,"/sys_act/add",save_file_path_handler,0);
     mg_set_request_handler(context,"/sys_act/run",app_launcher_handler,0);
     mg_set_request_handler(context,"/sys_act/delete",delete_app_handler,0);
+    mg_set_request_handler(context,"/sys_act/cmd",command_handler,0);
     //Server Info
     std::cout << "Server running on http://localhost:9090" << std::endl;
     std::cout << "Press Enter To Stop Server"<< std::endl;
     Sleep(1000);
-    create_process("UI","NWeb.exe");
+    auto start_ui = create_process_inner("Ui","NWeb.exe");
+    DWORD pid = start_ui.get();
+    //After Enter
     getchar();  
+    std::cout <<"PID CODE: "<< pid << std::endl;
+    shutdown(pid);
     
     mg_stop(context);
 

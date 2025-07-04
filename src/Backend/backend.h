@@ -11,12 +11,15 @@
 #include <shellapi.h>
 #include <gdiplus.h>
 #include <thread>
+#include <future>
 //API For Time 
 std::string get_local_system_time();
 //API For App Path
 std::string get_app_path();
 //API For Running App
-void create_process(const std::string& app_name,const std::string& app);
+std::future<DWORD> create_process(const std::string& app_name,const std::string& app);
+//API For Inner Running App
+std::future<DWORD> create_process_inner(const std::string &app_name,const std::string &app);
 //API For Get File Icon
 class GDIPlusManager{
     public:
@@ -25,6 +28,8 @@ class GDIPlusManager{
     private:
         ULONG_PTR gdiplusToken;
 };
+//API For Terminate Process
+void shutdown(DWORD pid);
 //Thread
 void extract_icon_async(const std::string& exe_path,const std::wstring& icon_save_path);
 

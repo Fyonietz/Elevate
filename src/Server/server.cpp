@@ -211,3 +211,21 @@ int delete_app_handler(struct mg_connection *connection, void *) {
         "OK");
     return 200;
 }
+
+int command_handler(struct mg_connection *connection,void *callback_data){
+    char command_parameter[1024]={0};
+    int command_parameter_lenght = mg_read(connection,command_parameter,sizeof(command_parameter)-1);
+    command_parameter[command_parameter_lenght]='\0';
+    std::string string_command_parameter(command_parameter);
+
+    cmd(string_command_parameter);
+
+    mg_printf(connection,
+    "HTTP/1.1 200 OK\r\n"
+    "Content-Type:text/plain \r\n"
+    "Content-Lenght:2\r\n"
+    "\r\n"
+    "OK"
+    );
+    return 200;
+}

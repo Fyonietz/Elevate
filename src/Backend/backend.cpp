@@ -88,20 +88,23 @@ std::string get_app_path() {
 
     return app_path_to_string;
 }
-void create_process(const std::string& app_name,const std::string& app){
-   std::thread([app_name,app](){
-        STARTUPINFOA si={sizeof(si)};
+std::future<DWORD> create_process(const std::string& app_name,const std::string& app){
+    std::promise<DWORD> pid_promise;
+    std::future<DWORD> pid_future = pid_promise.get_future();
+   
+    std::thread([app_name, app, prom = std::move(pid_promise)]() mutable {
+        STARTUPINFOA si = {sizeof(si)};
         PROCESS_INFORMATION pi;
         std::string shellCmd = "cmd.exe /c start \"\" \"" + app + "\"";
         std::vector<char> cmd(shellCmd.begin(), shellCmd.end());
         
         //Working dir
         std::string::size_type last_position = app.find_last_of("\\/");
-        std::string working_direction =(last_position != std::string::npos) ? app.substr(0,last_position) : "";
+        std::string working_direction = (last_position != std::string::npos) ? app.substr(0, last_position) : "";
 
         // std::vector<char> cmd(app.begin(),app.end());
         cmd.push_back('\0');
-        if(!CreateProcessA(
+        if (!CreateProcessA(
             nullptr,
             cmd.data(),
             nullptr,
@@ -109,21 +112,66 @@ void create_process(const std::string& app_name,const std::string& app){
             FALSE,
             CREATE_NEW_CONSOLE,
             nullptr,
-            working_direction.empty() ? nullptr:working_direction.c_str(),
+            working_direction.empty() ? nullptr : working_direction.c_str(),
             &si,
             &pi
-        )){
+        )) {
             DWORD err = GetLastError();
             std::cerr << "Failed To Launch: " << app << " " << err << std::endl;
             return;
-        }else{
+        } else {
             std::cout << "PID: " << pi.dwProcessId << std::endl;
+            prom.set_value(pi.dwProcessId);
         }
-        WaitForSingleObject(pi.hProcess,INFINITE);
+        WaitForSingleObject(pi.hProcess, INFINITE);
         // std::cout << app_name << " has closed "<< std::endl;
         CloseHandle(pi.hProcess);
         CloseHandle(pi.hThread);
+
    }).detach();
+   return pid_future;
+}
+std::future<DWORD> create_process_inner(const std::string &app_name,const std::string &app){ std::promise<DWORD> pid_promise;
+    std::future<DWORD> pid_future = pid_promise.get_future();
+   
+    std::thread([app_name, app, prom = std::move(pid_promise)]() mutable {
+        STARTUPINFOA si = {sizeof(si)};
+        PROCESS_INFORMATION pi;
+        std::string shellCmd = "\"" + app + "\"";
+        std::vector<char> cmd(shellCmd.begin(), shellCmd.end());
+        
+        //Working dir
+        std::string::size_type last_position = app.find_last_of("\\/");
+        std::string working_direction = (last_position != std::string::npos) ? app.substr(0, last_position) : "";
+
+        // std::vector<char> cmd(app.begin(),app.end());
+        cmd.push_back('\0');
+        if (!CreateProcessA(
+            nullptr,
+            cmd.data(),
+            nullptr,
+            nullptr,
+            FALSE,
+            CREATE_NEW_CONSOLE,
+            nullptr,
+            working_direction.empty() ? nullptr : working_direction.c_str(),
+            &si,
+            &pi
+        )) {
+            DWORD err = GetLastError();
+            std::cerr << "Failed To Launch: " << app << " " << err << std::endl;
+            return;
+        } else {
+            std::cout << "PID: " << pi.dwProcessId << std::endl;
+            prom.set_value(pi.dwProcessId);
+        }
+        WaitForSingleObject(pi.hProcess, INFINITE);
+        // std::cout << app_name << " has closed "<< std::endl;
+        CloseHandle(pi.hProcess);
+        CloseHandle(pi.hThread);
+
+   }).detach();
+   return pid_future;
 }
 //API For Get File Icon
 
@@ -217,6 +265,13 @@ std::vector<std::string> find_all_json_files(const std::string &root_dir){
 }
 
 void cmd(std::string &command){
+    //command
+    std::string command_after_parser = command.substr(command.find('=')+1);
 
+    std::cout << command_after_parser << std::endl;
 
 };
+void shutdown(DWORD pid){
+   std::string cmd = "taskkill /PID " + std::to_string(pid) + " /F";
+   system(cmd.c_str());
+}

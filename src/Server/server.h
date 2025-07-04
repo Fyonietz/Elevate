@@ -26,6 +26,7 @@ int save_file_path_handler(struct mg_connection *connection,void *callback_data)
 int app_launcher_handler(struct mg_connection *connection,void *callback_data);
 //Delete An App
 int delete_app_handler(struct mg_connection *connection,void *);
-
+//Command
+int command_handler(struct mg_connection *connection,void *callback_data);
 
 #endif // !SERVER_CONFIG

@@ -39,5 +39,7 @@ wchar_t* ConvertToWChar(const std::string& str);
 //JSON Loader
 std::vector<std::string> find_all_json_files(const std::string &root_dir);
 //Terminal
-void cmd(std::string &command);
+void cmd(const std::string &command);
+//URL DECODED
+std::string decode(const std::string &un_decode);
 #endif // !WIN_API_H

@@ -14,6 +14,11 @@ const char *get_mime_type(const char *path){
     return "text/plain";
 }
 
+std::string decode(const std::string &un_decode){
+    char decoded[1024];
+    mg_url_decode(un_decode.c_str(),un_decode.length(),decoded,sizeof(decoded),1);
+    return std::string(decoded);
+};
 int get_method(struct mg_connection *connection,const mg_request_info *info){
     const char *query = info->query_string;
     mg_printf(connection, "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n");
@@ -218,7 +223,7 @@ int command_handler(struct mg_connection *connection,void *callback_data){
     command_parameter[command_parameter_lenght]='\0';
     std::string string_command_parameter(command_parameter);
 
-    cmd(string_command_parameter);
+    cmd(decode(string_command_parameter));
 
     mg_printf(connection,
     "HTTP/1.1 200 OK\r\n"

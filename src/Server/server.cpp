@@ -234,3 +234,60 @@ int command_handler(struct mg_connection *connection,void *callback_data){
     );
     return 200;
 }
+int app_scanner_handler(struct mg_connection *connection,void *callback_data){
+    char parameter_trigger[8]={0};
+    int parameter_trigger_len = mg_read(connection,parameter_trigger,sizeof(parameter_trigger)-1);
+    parameter_trigger[parameter_trigger_len]='\0';
+    std::cout << parameter_trigger << std::endl;
+    if(parameter_trigger){
+        std::cout << parameter_trigger << std::endl;
+        scan();
+    }else{
+        std::cout << "Error" << std::endl;
+    }
+    mg_printf(connection,
+    "HTTP/1.1 200 OK\r\n"
+    "Content-Type:text/plain \r\n"
+    "Content-Lenght:2\r\n"
+    "\r\n"    
+    "File Scanner Running"    
+);
+    return 200;
+}
+
+
+int icon_converter_handler(struct mg_connection *connection,void *callback_data){
+    char parameter_trigger[8]={0};
+    int parameter_trigger_len = mg_read(connection,parameter_trigger,sizeof(parameter_trigger)-1);
+    parameter_trigger[parameter_trigger_len]='\0';
+    std::cout << parameter_trigger << std::endl;
+    if(parameter_trigger){
+        std::cout << parameter_trigger << std::endl;
+        convert_icon();
+    }else{
+        std::cout << "Error" << std::endl;
+    }
+    mg_printf(connection,
+    "HTTP/1.1 200 OK\r\n"
+    "Content-Type:text/plain \r\n"
+    "Content-Lenght:2\r\n"
+    "\r\n"    
+    "Icon Converter Running"    
+);
+    return 200;
+
+}
+
+int list_json_handler(struct mg_connection *connection,void *callback_data){
+       nlohmann::json result = nlohmann::json::array();
+    for (const auto& entry : std::filesystem::recursive_directory_iterator("Ui/JSON")) {
+        if (entry.is_regular_file() && entry.path().extension() == ".json") {
+            result.push_back(entry.path().filename().string());
+        }
+    }
+    std::string body = result.dump();
+    mg_printf(connection,
+        "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: %zu\r\n\r\n%s",
+        body.size(), body.c_str());
+    return 200;
+}

@@ -42,4 +42,8 @@ std::vector<std::string> find_all_json_files(const std::string &root_dir);
 void cmd(const std::string &command);
 //URL DECODED
 std::string decode(const std::string &un_decode);
+//Scanner Function
+void scan();
+//Icon Converter
+void convert_icon();
 #endif // !WIN_API_H

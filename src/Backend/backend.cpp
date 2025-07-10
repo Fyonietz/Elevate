@@ -104,6 +104,8 @@ std::future<DWORD> create_process(const std::string& app_name,const std::string&
 
         // std::vector<char> cmd(app.begin(),app.end());
         cmd.push_back('\0');
+        std::cout << "Command: " << shellCmd << std::endl;
+        std::cout << "Working dir: " << (working_direction.empty() ? "null" : working_direction) << std::endl;
         if (!CreateProcessA(
             nullptr,
             cmd.data(),
@@ -283,4 +285,10 @@ void cmd(const std::string &command){
 void shutdown(DWORD pid){
    std::string cmd = "taskkill /PID " + std::to_string(pid) + " /F";
    system(cmd.c_str());
+}
+void scan() {
+    create_process("Scan", "Sea.exe");
+}
+void convert_icon() {
+    create_process("Converter Icon", "Ice.exe");
 }

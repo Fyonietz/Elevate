@@ -179,7 +179,6 @@ if (searchInput && searchResults) {
         })
           .then((res) => res.text())
           .then((response) => {
-            // Optionally show response to user
             console.log("CMD response:", response);
           });
         searchResults.innerHTML = "";
@@ -191,23 +190,41 @@ if (searchInput && searchResults) {
       return;
     }
 
-    fetch("/JSON/search.json?" + Date.now())
+    // Load list of JSON files
+    fetch("/sys_info/list_json")
       .then((res) => res.json())
-      .then((data) => {
-        const allSearchApps = data.app_lists.map((obj) => {
-          const name = Object.keys(obj)[0];
-          return {
-            name,
-            location: obj[name].app_location,
-            image: obj[name].app_image,
-          };
-        });
+      .then((files) => {
+        // Fetch all JSON files in parallel
+        return Promise.all(
+          files.map((filename) =>
+            fetch("/JSON/" + filename)
+              .then((res) => res.json())
+              .catch((err) => {
+                console.warn("Failed to load:", filename, err);
+                return { app_lists: [] };
+              })
+          )
+        );
+      })
+      .then((results) => {
+        // Combine and flatten all app entries
+        const allSearchApps = results
+          .flatMap((data) =>
+            data.app_lists.map((obj) => {
+              const name = Object.keys(obj)[0];
+              return {
+                name,
+                location: obj[name].app_location,
+                image: obj[name].app_image,
+              };
+            })
+          );
 
         currentMatches = allSearchApps.filter((app) =>
           app.name.toLowerCase().includes(query)
         );
 
-        currentMatches.forEach((app, idx) => {
+        currentMatches.forEach((app) => {
           const li = document.createElement("li");
           li.textContent = app.name;
           li.style.cursor = "pointer";
@@ -221,6 +238,7 @@ if (searchInput && searchResults) {
         console.error("Search fetch error:", err);
       });
   });
+}
 
   // Key navigation (arrow keys + enter)
   searchInput.addEventListener("keydown", function (e) {
@@ -269,7 +287,7 @@ if (searchInput && searchResults) {
       }
     }
   });
-}
+
 
 function updateSelection(items) {
   items.forEach((li, idx) => {
@@ -306,4 +324,56 @@ document.addEventListener("mousedown", function (e) {
   if (searchMenu.classList.contains("active") && !searchMenu.contains(e.target)) {
     searchMenu.classList.remove("active");
   }
+});
+
+//Left Tools App
+const app_search=document.querySelector(".app-search");
+const tools_app = document.querySelector(".tools-app");
+app_search.addEventListener("mouseenter",function(e){
+  tools_app.classList.remove("hidden")
+});
+
+app_search.addEventListener("mouseleave",function(){
+setTimeout(function(){
+  tools_app.classList.add("hidden");
+},1000)
+})
+function scanf(){
+  fetch("sys_act/scan",{
+    method:"POST",
+    headers:{"Content-Type": "application/x-www-form-urlencoded"},
+    body:"scan"
+  })
+}
+function convertf(){
+  fetch("sys_act/convert",{
+    method:"POST",
+    headers:{"Content-Type": "application/x-www-form-urlencoded"},
+    body:"convert"
+  })
+}
+function terminate(){
+  fetch("sys_act/cmd",{
+        method:"POST",
+    headers:{"Content-Type": "application/x-www-form-urlencoded"},
+    body:"command=" + encodeURIComponent("::sys::terminate")
+  })
+}
+function restart(){
+  fetch("sys_act/cmd",{
+        method:"POST",
+    headers:{"Content-Type": "application/x-www-form-urlencoded"},
+    body:"command=" + encodeURIComponent("::sys::restart")
+  })
+}
+const actions=[
+  ()=>scanf(),
+  ()=>convertf(),
+  ()=>terminate(),
+  ()=>restart()
+];
+const tools_list = document.querySelectorAll("#tools-list li");
+
+tools_list.forEach((items,index)=>{
+  items.addEventListener("click",actions[index]);
 });

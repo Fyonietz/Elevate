@@ -28,5 +28,10 @@ int app_launcher_handler(struct mg_connection *connection,void *callback_data);
 int delete_app_handler(struct mg_connection *connection,void *);
 //Command
 int command_handler(struct mg_connection *connection,void *callback_data);
-
+//App Scanner
+int app_scanner_handler(struct mg_connection *connection,void *callback_data);
+//Icon Converter
+int icon_converter_handler(struct mg_connection *connection,void *callback_data);
+//List Json
+int list_json_handler(struct mg_connection *connection,void *callback_data);
 #endif // !SERVER_CONFIG

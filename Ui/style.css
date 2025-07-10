@@ -247,12 +247,51 @@ h1{
 
 .hidden {
   display: none !important;
+  width: 0;
 }
 
+.tools-app .hidden{
+  width: 0;
+}
 .tools-app{
   position: relative;
-  margin-top: -1.1%;
+  margin-top: -0.1%;
   width: 250px;
   background-color: #D72638;
   color: #fff;
+  border: none;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  transition: max-width 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s, visibility 0.4s;
+  max-width: 250px;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+}
+
+.tools-app.hidden {
+  max-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding: 0;
+}
+
+.tools-app ul{
+  list-style-type: none;
+  height: 20%;
+  padding-left: 0%;
+  box-sizing: border-box;
+  margin-top:0 ;
+  margin-bottom: 0;
+}
+
+.tools-app li{
+  padding-top:5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+}
+
+.tools-app li:hover{
+  background-color: #181818;
 }

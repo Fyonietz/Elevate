@@ -66,6 +66,7 @@ Clicking on the "Calculator" icon in the web launcher UI will start the Windows 
 - `(sys_act/add)` For Adding App To JSON(Taskbar)
 - `(sys_act/run)` For Running App In Elevate(Universal)
 - `(sys_act/delete)` For Deleting App In JSON Lists
+- `(sys_act/cmd)` For Running A Command
 
 ## Contributing
 

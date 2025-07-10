@@ -22,13 +22,16 @@ const char *config[] = {
     mg_set_request_handler(context,"/api",request_handler,0);
     //Sys Info
     mg_set_request_handler(context,"/sys_info/time",time_handler,0);
-
+    mg_set_request_handler(context,"/sys_info/list_json",list_json_handler,0);
     //Sys Act
     mg_set_request_handler(context,"/sys_act/save",save_json_handler,0);
     mg_set_request_handler(context,"/sys_act/add",save_file_path_handler,0);
     mg_set_request_handler(context,"/sys_act/run",app_launcher_handler,0);
     mg_set_request_handler(context,"/sys_act/delete",delete_app_handler,0);
     mg_set_request_handler(context,"/sys_act/cmd",command_handler,0);
+    mg_set_request_handler(context,"/sys_act/scan",app_scanner_handler,0);
+    mg_set_request_handler(context,"/sys_act/convert",icon_converter_handler,0);
+
     //Server Info
     std::cout << "Server running on http://localhost:9090" << std::endl;
     std::cout << "Press Enter To Stop Server"<< std::endl;

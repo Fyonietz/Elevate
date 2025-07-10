@@ -267,14 +267,15 @@ std::vector<std::string> find_all_json_files(const std::string &root_dir){
 void cmd(const std::string &command){
     std::unordered_map<std::string,std::string> command_key={
         {"::sys::terminate","shutdown /s /f /t 0"},
-        {"::sys::sleep","cant_sleep"}
+        {"::sys::restart","shutdown /r /f /t 0"}
     };
     //command
     std::string command_after_parser = command.substr(command.find('=')+1);
 
     std::cout << command_after_parser << std::endl;
     if(command_key.count(command_after_parser)){
-        std::cout<< command_key[command_after_parser] << std::endl;
+        std::cout<< command_key[command_after_parser].c_str() << std::endl;
+        system(command_key[command_after_parser].c_str());
     }else{
         std::cout << "command doesnt exist" <<std::endl;
     }

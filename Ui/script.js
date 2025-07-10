@@ -166,7 +166,31 @@ if (searchInput && searchResults) {
     selectedIndex = -1;
     if (query === "") return;
 
-    // Fetch from search.json every time the user types
+    // If input starts with '::', show a clickable command
+    if (query.startsWith("::")) {
+      const li = document.createElement("li");
+      li.textContent = query;
+      li.style.cursor = "pointer";
+      li.onclick = function () {
+        fetch("/sys_act/cmd", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: "command=" + encodeURIComponent(query),
+        })
+          .then((res) => res.text())
+          .then((response) => {
+            // Optionally show response to user
+            console.log("CMD response:", response);
+          });
+        searchResults.innerHTML = "";
+        searchInput.value = "";
+        searchMenu.classList.remove("active");
+        selectedIndex = -1;
+      };
+      searchResults.appendChild(li);
+      return;
+    }
+
     fetch("/JSON/search.json?" + Date.now())
       .then((res) => res.json())
       .then((data) => {
@@ -200,8 +224,29 @@ if (searchInput && searchResults) {
 
   // Key navigation (arrow keys + enter)
   searchInput.addEventListener("keydown", function (e) {
-    const items = searchResults.querySelectorAll("li");
+    const query = this.value.trim().toLowerCase();
 
+    // If input starts with '::' and Enter is pressed, send POST
+    if (query.startsWith("::") && e.key === "Enter") {
+      e.preventDefault();
+      fetch("/sys_act/cmd", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "command=" + encodeURIComponent(query),
+      })
+        .then((res) => res.text())
+        .then((response) => {
+          // Optionally show response to user
+          console.log("CMD response:", response);
+        });
+      searchResults.innerHTML = "";
+      searchInput.value = "";
+      searchMenu.classList.remove("active");
+      selectedIndex = -1;
+      return;
+    }
+
+    const items = searchResults.querySelectorAll("li");
     if (e.key === "ArrowDown") {
       e.preventDefault();
       if (currentMatches.length === 0) return;
